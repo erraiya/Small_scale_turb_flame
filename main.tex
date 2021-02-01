@@ -1,0 +1,266 @@
+\documentclass[review,times,sort&compress]{elsarticle}
+%==================================================================================================
+\usepackage[colorlinks,linkcolor=blue,anchorcolor=red,citecolor=green]{hyperref}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{overpic}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{lineno}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{overpic}
+\usepackage{bm}
+\usepackage{cleveref}
+\usepackage{dcolumn}
+\usepackage{booktabs}
+\usepackage{mhchem}
+\usepackage{mathrsfs}
+\usepackage{breqn}
+
+
+%==================================================================================================
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial #2} }
+\newcommand{\ie}{\emph{i.e~}}
+\renewcommand{\th}{\textsuperscript{th}~}
+\DeclareMathOperator{\Nabla}{\mathbf{\nabla}}
+%==================================================================================================
+\journal{TBD}
+%==================================================================================================
+\begin{document}
+%==================================================================================================
+\begin{frontmatter}
+\title{\textbf{Revisiting small-scale turbulence features in turbulent premixed flames }}
+\author[KAUST]{Aimad Er-raiy\corref{cor1}}
+\ead{\texorpdfstring{aimad.erraiy@kaust.edu.sa}{}}
+\author[KAUST]{Radouan Boukharfane}
+\ead{\texorpdfstring{radouan.boukharfane@kaust.edu.sa}{}}
+\author[KAUST]{Matteo Parsani}
+\ead{\texorpdfstring{matteo.parsani@kaust.edu.sa}{}}
+\author[NEWCASTLE]{Nilanjan Chakraborty}
+\ead{\texorpdfstring{nilanjan.chakraborty@newcastle.ac.uk}{}}
+\cortext[cor1]{Corresponding author}
+\address[KAUST]{King Abdullah University of Science and Technology (KAUST), Computer Electrical 
+and Mathematical Science and Engineering Division (CEMSE), Extreme Computing Research 
+Center (ECRC), 23955-6900, Thuwal, Saudi Arabia}
+\address[NEWCASTLE]{School of Engineering, Newcastle university, Claremont Road, Newcastle-Upon-Tyne
+NE1 7RU, UK}
+%==================================================================================================
+\begin{abstract}
+\end{abstract}
+%==================================================================================================
+\begin{keyword}
+Direct Numerical Simulation, Premixed combustion, Vorticity, Principal strain rate
+\end{keyword}
+%==================================================================================================
+\end{frontmatter}
+%==================================================================================================
+\input{num_methods}
+%=============================================================
+\input{dns_db}
+%=============================================================
+\input{concept}
+As a starting point of the current analysis, the relative importance of the non-normal effects across
+the whole flame brush is scrutinized.
+%
+In the present analysis, the flame is characterized by the progress variable based on the temperature, \ie
+%
+\begin{equation}
+    c = \frac{T - T^u}{T^b-T^u}
+\end{equation}
+%
+where $T(Y, \mathbf{x})$ is the mixture temperature and the superscripts $u$ and $b$ refer, 
+respectively to the fresh reactants and the fully burnt gases states.
+%
+\autoref{fig:snapshots_prog_var} displays the three-dimensional iso-surfaces of $c$ for the four 
+cases considered in the DNS database.
+%
+\begin{figure}[htpb]
+\centering
+\begin{subfigure}{.5\textwidth}
+\centering
+\includegraphics[width=.5\textwidth]{./figs/progvar/cmap.pdf}
+\end{subfigure}
+
+\vspace{2em}
+
+\begin{subfigure}{.48\textwidth}
+\centering
+\includegraphics[width=.99\textwidth]{./figs/progvar/case1.pdf}
+\caption{Case $\mathcal{C}_1$}
+\label{fig:progvar_contour_case1}
+\end{subfigure}
+%
+\begin{subfigure}{.48\textwidth}
+\centering
+\includegraphics[width=.99\textwidth]{./figs/progvar/case2.pdf}
+\caption{Case $\mathcal{C}_2$}
+\label{fig:progvar_contour_case2}
+\end{subfigure}
+
+\begin{subfigure}{.48\textwidth}
+\centering
+\includegraphics[width=.99\textwidth]{./figs/progvar/case3.pdf}
+\caption{Case $\mathcal{C}_3$}
+\label{fig:progvar_contour_case3}
+\end{subfigure}
+%
+\begin{subfigure}{.48\textwidth}
+\centering
+\includegraphics[width=.99\textwidth]{./figs/progvar/case4.pdf}
+\caption{Case $\mathcal{C}_4$}
+\label{fig:progvar_contour_case4}
+\end{subfigure}
+\caption{Instantaneous iso-surfaces of the progress variable based on the mixture temperature,
+for (a) $\mathcal{C}_1$, (b) $\mathcal{C}_2$, (c) $\mathcal{C}_3$, and (d) $\mathcal{C}_4$.
+%
+The left column displays the fresh reactants side with the iso-surface $c^*=0.4$ and the right column
+the burnt gases side with the iso-surface $c^*=0.9$.}
+\label{fig:snapshots_prog_var}
+\end{figure}
+%
+Since the dynamics of the velocity gradient are resulting from the superposition of the normal and 
+non-normal contributions given by  $\|\mathcal{A}_{\mathcal{L}}\|$ and  $\|\mathcal{A}_{\mathcal{N}}\|$
+respectively, where $\|\mathcal{M}\|$ refer to the Frobenius norm of the matrix $\mathcal{M}$, \ie
+$\|\mathcal{M}\|^2 = \mathrm{tr}(\mathcal{M}\mathcal{M}^*)= \sum_{i, j=1}^3\mathrm{tr} |\mathcal{M}_{i,j}|^2$, the relative importance of normal/non-normal effects can be estimated on the basis of the following standardized difference
+%
+\begin{equation}
+    \kappa_{\mathcal{A}_{\mathcal{L}}, \mathcal{A}_{\mathcal{N}}} = \frac{\|\mathcal{A}_{\mathcal{L}}\| -
+    \|\mathcal{A}_{\mathcal{N}}\|}{\|\mathcal{A}_{\mathcal{L}}\|+\|\mathcal{A}_{\mathcal{N}}\|}
+\end{equation}
+%
+By definition, $-1<\kappa_{\mathcal{A}_{\mathcal{L}}, \mathcal{A}_{\mathcal{N}}}<1$, where a value
+of -1 indicates a dominance of non-normal effects, whereas $\kappa_{\mathcal{A}_{\mathcal{L}}, \mathcal{A}_{\mathcal{N}}}=1$ reflects a weak impact of non-normality and making it acceptable to approximate
+the flow dynamics by the eigenvalues-based approach.
+%
+An instantaneous plot of this indicator is given by \autoref{fig:kappa_contour} which illustrates
+visually the comparability of the non-normal contribution to the one associated to the eigenvalues 
+part and thus the importance of the non-local effects across all the flame brush.%
+%
+\begin{figure}[htpb]
+\centering
+\begin{subfigure}{.48\textwidth}
+\hspace{-5em}
+\includegraphics[width=1.5\textwidth]{./figs/kappa/cmap.pdf}
+\end{subfigure}
+
+\vspace{2em}
+
+\begin{subfigure}{.48\textwidth}
+\centering
+\includegraphics[width=.99\textwidth]{./figs/kappa/case1.pdf}
+\caption{Case $\mathcal{C}_1$}
+\label{fig:kappa_contour_case1}
+\end{subfigure}
+%
+\begin{subfigure}{.48\textwidth}
+\centering
+\includegraphics[width=.99\textwidth]{./figs/kappa/case2.pdf}
+\caption{Case $\mathcal{C}_2$}
+\label{fig:kappa_contour_case2}
+\end{subfigure}
+
+\begin{subfigure}{.48\textwidth}
+\centering
+\includegraphics[width=.99\textwidth]{./figs/kappa/case3.pdf}
+\caption{Case $\mathcal{C}_3$}
+\label{fig:kappa_contour_case3}
+\end{subfigure}
+%
+\begin{subfigure}{.48\textwidth}
+\centering
+\includegraphics[width=.99\textwidth]{./figs/kappa/case4.pdf}
+\caption{Case $\mathcal{C}_4$}
+\label{fig:kappa_contour_case4}
+\end{subfigure}
+\caption{Instantaneous standardized difference between normal and non-normal contributions, 
+$\kappa_{\mathcal{A}_{\mathcal{L}}, \mathcal{A}_{\mathcal{N}}}$, and normalized heat release rate 
+$\hat{\dot{\omega}}_{\mathrm{HRR}}$. For all the cases, the inlet is on the left and the iso-lines
+of the progress variable correspond to the values $c^*=0.4$ and $c^*=0.9$, where $c$ is the progress
+variable based on the mixture temperature.}
+\label{fig:kappa_contour}
+\end{figure}
+%
+\autoref{fig:kappa_contour} shows that there are spatially localized, high-amplitude fluctuations
+in the $\kappa_{\mathcal{A}_{\mathcal{L}}, \mathcal{A}_{\mathcal{N}}}$ field.
+%
+However, the occurrence of high non-normality zones is generally lower in the products side
+in a sense that these effects are \emph{suppressed} by the flame.
+%
+These suppression abruptly takes place at the vicinity of the iso-surface $c^{*}=0.4$, which can be
+viewed as a separation between the preheat and reaction zones, and it is more pronounced in lower
+turbulence intensity (see \autoref{fig:kappa_contour_case1} and \autoref{fig:kappa_contour_case2})
+in comparison to higher Karlovitz cases ($\mathcal{C}_3$ and $\mathcal{C}_4$ in 
+\autoref{fig:kappa_contour_case3} and \autoref{fig:kappa_contour_case4}).
+%
+\begin{figure}
+\begin{subfigure}{.48\textwidth}
+\centering
+\includegraphics[width=.99\textwidth]{./figs/kappa_B_C_pdf/case1.pdf}
+\caption{Case $\mathcal{C}_1$}
+\label{fig:kappa_pdf_case1}
+\end{subfigure}
+%
+\begin{subfigure}{.48\textwidth}
+\centering
+\includegraphics[width=.99\textwidth]{./figs/kappa_B_C_pdf/case2.pdf}
+\caption{Case $\mathcal{C}_2$}
+\label{fig:kappa_pdf_case2}
+\end{subfigure}
+
+\begin{subfigure}{.48\textwidth}
+\centering
+\includegraphics[width=.99\textwidth]{./figs/kappa_B_C_pdf/case3.pdf}
+\caption{Case $\mathcal{C}_3$}
+\label{fig:kappa_pdf_case3}
+\end{subfigure}
+%
+\begin{subfigure}{.48\textwidth}
+\centering
+\includegraphics[width=.99\textwidth]{./figs/kappa_B_C_pdf/case4.pdf}
+\caption{Case $\mathcal{C}_4$}
+\label{fig:kappa_pdf_case4}
+\end{subfigure}
+\caption{Conditional PDF of the standardized difference between normal and non-normal contributions, 
+$\kappa_{\mathcal{A}_{\mathcal{L}}, \mathcal{A}_{\mathcal{N}}}$. PDFs are shown for the iso-c values
+0.1, 0.8 and 0.9, and the dashed line corresponds to the overall distribution. The values in parentheses
+indicate the mode of the corresponding PDF.}
+\label{fig:kappa_pdf}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%
+% \hrule
+%
+
+% \begin{equation}
+% a_N  = \mathbf{n}^{T}\boldsymbol{\mathcal{S}}\mathbf{n}
+% \end{equation}
+% %
+% \begin{equation}
+% a_T  = (\mathcal{\boldsymbol{I}} - \mathbf{n}\mathbf{n}^T):\boldsymbol{\mathcal{S}}
+% \end{equation}
+% %
+% \begin{equation}
+% a_T + a_N = \nabla \cdot \mathbf{u}
+% \end{equation}
+%
+
+% \section{Conclusion}
+% \label{sec:conc}
+%=============================================================
+% %==================================================================================================
+\section*{Acknowledgements}
+%==================================================================================================
+The research reported in this paper was funded by King Abdullah University of Science and Technology.
+The authors are thankful for the computing resources of the Supercomputing Laboratory and the Extreme Computing Research Center at King Abdullah University of Science and Technology. 
+%
+% \scriptsize
+%=============================================================
+\bibliographystyle{plainnat}
+\bibliography{main.bib}
+%=============================================================
+\end{document}
+

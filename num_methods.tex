@@ -1,0 +1,143 @@
+\section{Governing equations and numerical methods}
+
+The numerical simulations in this study are solved within the framework of the low Mach number (LMN) formulation of the fully compressible reacting flow Navier--Stokes equations. 
+%
+The consideration of this approximation make it possible to decouple the flow thermo-chemical state
+from the momentum evolution \cite{paolucci1982filtering}. 
+%
+Indeed, in this regime, the evolution of the advection, diffusion and reaction processes takes
+place on a spatially homogeneous background pressure manifold.
+%
+Accordingly, the pressure field is decomposed into a sum of (i) a spatially homogeneous part $p^{(0)}(t)$, which is used to define the thermodynamic state of the fluid mixture, and (ii) a hydrodynamic part 
+$\pi(\mathbf{x}, t)$ which satisfies $\pi/p^{0} \sim \mathcal{O}(\mathcal{M}^2)$, where $\mathcal{M}$
+denotes the Mach number.
+%
+The hydrodynamic pressure $\pi$ acts as fluid motion-consistent Lagrange multiplier, whereas the
+ $p^0$ is constant in the frame of the fluid.
+%
+Within this framework, the fluid is treated as a perfect gases mixture of $N_{sp}$ species
+and the conservation of momentum as well as the dynamics of species mass fractions 
+and mixture enthalpy are given by the following transport equations
+
+\begin{align}
+\pd{\rho \mathbf{u}}{t} + \nabla \cdot (\rho \mathbf{u} \mathbf{u} + \boldsymbol{\tau})
+&= -\nabla \pi  + \rho \boldsymbol{\Gamma},
+\label{eq:lmn_mom}\\
+\pd{\rho  Y_k}{t} +  \nabla \cdot  (\rho  Y_k \mathbf{u} + \boldsymbol{\mathcal{F}}_k)
+&=  \dot{\omega}_k ,
+\label{eq:lmn_spec}\\
+\pd{\rho h}{t} + \nabla \cdot  (\rho h \mathbf{u} + \boldsymbol{\mathcal{Q}}) 
+&= 0
+\label{eq:lmn_enth}
+\end{align}
+%
+where $\rho$ is the density, $\mathbf{u}$ the fluid velocity, $Y_k$, $\boldsymbol{\mathcal{F}}_k$,
+ $\dot{\omega}_k$ denote respectively the mass fraction, the diffusive flux and the net reaction 
+ rate of the $k$\th,  $h$ is the mass-weighted enthalpy of the mixture, 
+ \ie $h=Y_k h_k$, with $h_k$ the enthalpy of the species $k$, $\boldsymbol{\mathcal{Q}}$ designates 
+ the heat flux and $\boldsymbol{\Gamma}$ is an external forcing term.
+
+The system of equations \eqref{eq:lmn_mom}-\eqref{eq:lmn_enth} is supplemented by the perfect 
+gas equation of state (EOS) $p^{(0)}=\rho \mathcal{R} T / W$, where the mixture molecular weight
+ $W$ is given by $W= \sum_{k=1}^{\mathcal{N}_{\mathrm{sp}}} W_k/Y_{k}$, with $W_{k}$ being 
+the molecular weight of the species $k$ and $\mathcal{R}$ the the universal gas constant.
+
+
+The fluid is supposed Newtonian and the bulk viscosity effects are ignored, thus the stress tensor
+$\boldsymbol{\tau}$ is expressed as
+
+\begin{equation}
+\mathbf{\tau}=\mu\left(\nabla\mathbf{u}+ \nabla\mathbf{u}^T\right)- \frac{2}{3}
+\mu\left(\nabla\cdot\mathbf{u}\right)\mathbf{I},
+\end{equation}
+%
+where $\mathbf{I}$ is the identity tensor and $\mu$ is the mixture dynamic viscosity.
+%
+The heat flux $\boldsymbol{\mathcal{Q}}$ takes the form 
+%
+\begin{equation}
+    \boldsymbol{\mathcal{Q}} =  \sum_{k=1}^{\mathcal{N}_{\mathrm{sp}}} h_k \boldsymbol{\mathcal{F}}_{k}  - \lambda \nabla T
+\end{equation}
+%
+where $\lambda$ is the mixture thermal conductivity.
+%
+A mixture-averaged model ignoring Soret, Dufour and barodiffusion effects is retained 
+and the diffusive flux for the $k$\th species reads
+\begin{equation}
+    \boldsymbol{\mathcal{F}}_k = -\rho \mathcal{D}_k Y_k \nabla X_k
+\end{equation}
+%
+with $X_k$ is the k\th $\mathcal{D}_k$ is the species mixture-averaged diffusion coefficient.
+
+The diffusion coefficient $\mathcal{D}_k$ is obtained using a mixing rule combining binary diffusion coefficients of all mixture species \cite{hirschfelder1954molecular}.
+%
+A similar approach is adopted for the evaluation of the mixture thermal conductivity, 
+$\lambda(T, Y_k)$ and viscosity $\nu(T, Y_k)$ which is based upon the mixing formulations
+of \cite{mathur1967thermal} and \cite{wilke1950viscosity} respectively.
+
+
+The LMN set of transport equations is solved on a Cartesian grid with constant grid spacing, using the finite volume, low-Mach, adaptive mesh \texttt{PeleLM} solver developed at Lawrence Berkeley National Laboratory \cite{almgren1998conservative,day2000numerical,nonaka2012deferred,pazner2016high,nonaka2018conservative} and built on top of the block-structured AMR \texttt{AMReX} 
+\cite{zhang2019amrex} .
+%
+Over the past two decades, the open-source solver, \texttt{PeleLM}, have been repeatedly validated on numerous inert and reactive configurations.
+%
+For instance, \texttt{PeleLM} was used in a similar context to the current DNS database, to characterize low-Mach, high-Karlovitz turbulent flames, see \citet{aspden2015turbulence,aspden2016three,aspden2017turbulence,aspden2018towards}.
+
+The numerical procedure implemented in \texttt{PeleLM} are presented in much
+greater detail in \cite{nonaka2018conservative}.
+%
+However, in the following, we restrict ourselves to a global overview of the solver.
+% 
+
+The overall numerical method is second-order accurate in time and space and rests on a 
+a coupling of the transport and chemistry with a density-weighted approximate projection 
+method through a multi-implicit spectral deferred correction strategy \cite{pember1998adaptive,almgren1998conservative, day2000numerical,dutt2000spectral,nonaka2012deferred,pazner2016high, nonaka2018conservative} where each process (advection, diffusion and reaction) is advanced in time
+thanks to a lagged approximation of the others.
+%
+The latter is introduced as an auxiliary time-dependent forcing term.
+%
+The advantage presented by this procedure consists in enforcing the constrained evolution of the
+velocity field while maintaining mass and enthalpy conservation and satisfying the EOS.
+%
+This constraint,obtained by re-expressing the continuity equation using the EOS, is imposed in
+ the form of the flow velocity divergence such that
+%
+\begin{dmath}
+\nabla \cdot \boldsymbol{u} = \frac{1}{T}\frac{DT}{Dt}+ W \sum_k \frac{1}{W_k} \frac{DY_k}{Dt}\\
+                            = (\rho c_p T)^{-1}\left[ \nabla \cdot (\lambda \nabla T)
+                                                         + \sum_k 
+                                                           \left(
+                                                                 \rho \mathcal{D}_k
+                                                                 \nabla h_k \cdot  \nabla Y_k 
+                                                            \right) 
+                                                   \right] \\
+                           ~~~~~+ \rho^{-1}~~~~ \left[ 
+                                    \sum_k \frac{W}{W_k} \nabla \cdot (\rho \mathcal{D}_k \nabla Y_k) +
+                                    \sum_k \left(\frac{W}{W_k} - \frac{h_k}{c_p T}\right) \dot{\omega}_k
+                               \right]
+\label{eq:div_constraint}
+\end{dmath}
+%
+where the operator $D\cdot/Dt$ is the material derivative, $T$ refer to mixture temperature and $c_p=\partial h/\partial T$ is the specific heat of the mixture at constant pressure.
+
+
+The advective fluxes are treated using a time explicit, second order, unsplit Godunov scheme with
+upwinding to compute an advection velocity field $u^{adv,*}$, which is unconstrained according
+to ~\eqref{eq:div_constraint}.
+%
+A density-weighted approximate projection applied to $u^{adv,*}$, decomposes the unconstrained advection
+velocity into the hydrodynamic pressure and a velocity field that satisfies the constraint 
+~\eqref{eq:div_constraint}.
+%
+The latter is retained as the solution velocity field.
+
+
+A semi-implicit discretization with a generalized Crank-Nicolson scheme is used to advance the
+diffusion, whereas the backward difference method is considered to advance the chemistry.
+%
+The integration time step is determined on the basis of the Courant–Friedrichs–Levy (CFL)
+considerations.
+%
+The thermodynamic coefficients as well as the species reaction rates in the same fashion as the
+\texttt{CHEMKIN} \cite{kee1990chemkin} specification, whereas \texttt{EGLIB}\cite{ern2004eglib} is
+used to evaluate the mixture-averaged transport properties.

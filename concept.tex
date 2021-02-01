@@ -1,0 +1,186 @@
+Turbulence-flame interactions are often quantitatively investigated by means of characterizing
+the two-way coupling between the turbulent flow field and the gradient of reactive scalar $\mathcal{Y}$.
+%
+This scalar can either be the mass fraction of a species present in the mixture, or the progress
+variable which is a normalized quantity taking the values 0 and 1 in the fresh gases and the
+burnt gases respectively.
+%
+The progress variable can be defined as the combination of a subset of species or in terms of the
+temperature.
+%
+The evolution of the scalar $\mathcal{Y}$, which is considered as a progress variable in the following, 
+is governed by the following transport equation
+%
+\begin{equation}
+\frac{D\mathcal{Y}}{Dt} = \frac{1}{\rho} \nabla \cdot \left(\rho \mathcal{D}_{\mathcal{Y}}
+\nabla \mathcal{Y}\right) +\dot{\omega}_{\mathcal{Y}}
+\label{eq:trans_scalar}
+\end{equation}
+%
+where $\mathcal{D}_{\mathcal{Y}}$ and $\dot{\omega}_{\mathcal{Y}}$ denote respectively the scalar's 
+molecular diffusivity and the chemical reaction rate.
+%
+As the premixed flame evolves in the presence of turbulent fluctuations, the instantaneous flame 
+front is subject to wrinkling which can be quantified using the variations and orientations of 
+the flame normals pointing towards fresh gases and defined as :
+\begin{equation}
+\mathbf{n} = -\frac{\nabla \mathcal{Y}}{ \|\nabla \mathcal{Y}\|}
+\end{equation}
+%
+where $\|\nabla \mathcal{Y}\| = \left[\mathcal{Y}^T\cdot\mathcal{Y}\right]^{1/2}$ is the scalar 
+gradient magnitude, which can be used as a measure of the inverse of the local flame width $\delta_t$.
+%
+The dynamics of the scalar gradient magnitude, the local flame width and the normals to the 
+iso-scalar surfaces are characterized with the equations
+
+\begin{align}
+\frac{D(\|\nabla \mathcal{Y}\|)}{Dt} &= - \mathbf{n} \cdot \frac{D(\nabla \mathcal{Y})}{Dt}
+\label{eq:trans_magn_grad_c}\\
+%
+\frac{D(\|\nabla \mathcal{Y}\|^{-1})}{Dt} &= \|\nabla \mathcal{Y}\|^{-2 }\mathbf{n} \cdot 
+\frac{D(\nabla \mathcal{Y})}{Dt}
+\label{eq:trans_thickness}\\
+%
+\frac{D\mathbf{n}}{Dt} &= - \|\nabla \mathcal{Y}\|^{-1} (\mathcal{\boldsymbol{I}} - \mathbf{n}\mathbf{n}^T) \frac{D(\nabla \mathcal{Y})}{Dt}
+\label{eq:trans_normals}
+\end{align}
+%
+The equations \eqref{eq:trans_magn_grad_c}, \eqref{eq:trans_thickness} and  \eqref{eq:trans_normals}
+depend on the transport equation of the scalar gradient, $\nabla \mathcal{Y}$, which is obtained
+from \eqref{eq:trans_scalar} as 
+%
+\begin{equation}
+\frac{D(\nabla \mathcal{Y})}{Dt} = \nabla \left( \frac{D\mathcal{Y}}{Dt}\right) + 
+\|\nabla \mathcal{Y}\| \nabla \mathbf{u} \cdot\mathbf{n}
+\label{eq:trans_scalar_grad_form0}
+\end{equation}
+%
+This equation is often rewritten, by splitting the velocity gradient tensor into tensors of strain-rate, 
+$\boldsymbol{\mathcal{S}}  = \frac{1}{2}\left(\nabla \mathbf{u} + \nabla \mathbf{u}^{T}\right)$, and rotation-rate, $\boldsymbol{\Omega}  = \frac{1}{2}\left(\nabla \mathbf{u} - \nabla \mathbf{u}^{T}\right)$, according to the Hermitian/skew-Hermitian Cauchy-Stokes decomposition as
+%
+\begin{dmath}
+\frac{D(\nabla \mathcal{Y})}{Dt} = \nabla \left( \frac{D\mathcal{Y}}{Dt}\right) +
+                   \|\nabla \mathcal{Y}\| \left(
+                        \boldsymbol{\mathcal{S}} \cdot \mathbf{n} + 
+                        \boldsymbol{\Omega} \cdot \mathbf{n}
+                        \right) \\
+       = \nabla \left( \frac{D\mathcal{Y}}{Dt}\right) +
+        \|\nabla \mathcal{Y}\| \left(
+        \boldsymbol{\mathcal{S}} \cdot \mathbf{n}
+        +\frac{1}{2} \mathbf{n} \times \boldsymbol{\omega}
+        \right)
+\label{eq:cauchy_stokes}
+\end{dmath}
+%
+where $\boldsymbol{\omega} = \nabla \times \mathbf{u}$ denotes the vorticity vector.
+%
+This form was widely used in prior studies, see for instance \cite{hamlington2011interactions,wacks2016flow,zhao2018dynamics}, to scrutinize the interactions of the small-scale turbulence, characterized by $\boldsymbol{\mathcal{S}}$ and $\boldsymbol{\omega}$, and the flame front.
+%
+Indeed, as highlighted by the equations above, the terms perpendicular (parallel) to the flame
+normals, are expected to directly influence the dynamics of the normals (local width).
+%
+Consequently, both the strain-rate and the vorticity terms in the equation \eqref{eq:cauchy_stokes}
+play a role in the dynamics of the flame wrinkling and orientation, whereas only the strain-rate
+term affects $\delta_t$.
+%
+In light of the above, the turbulence-flame interactions are reflected by the alignments of flame 
+normals with the normalized vorticity vector $\hat{\boldsymbol{\omega}} = \boldsymbol{\omega}/\|\boldsymbol{\omega}\|$ and with the principal directions $\mathbf{e}_i$ of the strain-rate tensor $\boldsymbol{\mathcal{S}}$.
+%
+The alignments are given with the absolute value of the cosine of the angle between two vectors,
+such as the value 1 indicates a perfect alignment and 0 refer to a perfect misalignment 
+(perpendicularity).
+%
+Given the symmetry of the strain-rate tensor, the eigenvalues $\mathbf{e}_i$, correspond to the
+three real eigenvalues, $\lambda_i$, of $\boldsymbol{\mathcal{S}}$ ordered as $
+\lambda_1>\lambda_2>\lambda_3$, where $\mathbf{e}_1$, $\mathbf{e}_2$ and $\mathbf{e}_3$ can be 
+referred to as the extensive, intermediate and compressive directions.
+%
+One of the key findings of this family of analysis, conducted either on the passive and reactive 
+scalars with passive chemical reactions or flame characterized with a high Karlovitz number,  
+is preferential alignment of the scalar gradient with the most compressive direction 
+$\mathbf{e}_3$ \cite{ashurst1987alignment,rutland1993direct,kim2007scalar,chakraborty2007influence,hamlington2011interactions,hartung2008effect,swaminathan2006interaction}.
+%
+However, this behaviour is altered in weak to moderate turbulence (low Karlovitz) where the 
+flame-induced thermal expansion affects the turbulence-scalar interaction and the normals are
+aligned with the most extensive direction $\mathbf{e}_1$ \cite{chakraborty2007influence,
+cifuentes2014local,chakraborty2007comparison}.\\
+
+
+Obviously, as demonstrated above, the classical decomposition of the velocity tensor has led
+to important conclusions in terms of turbulence-flame interactions.
+%
+However, this decomposition obscures the understanding of some of the processes taking place in the
+interaction of the flame with the turbulent flow field.
+%
+Indeed, as highlighted by a certain number of recent studies \cite{kolavr2007vortex,gao2019rortex,nagata2020triple}, the Hermitian/skew-Hermitian decomposition is constrained by its inability
+to segregate pure local normal-straining and rigid-body-rotation effects from non--local dynamics
+induced by shearing, as the latter is an intrinsic part of both strain-rate and vorticity tenors.
+%
+More recently, by performing a complex Schur decomposition of $\nabla \mathbf{u}$,
+\citet{keylock2018schur}, dissociated the shear contribution from the other dynamics of the 
+velocity gradient.
+%
+In this framework, the decomposition introduced by \citet{keylock2018schur}, isolates the local
+dynamics, which are associated to the eigenvalues, from the non-local effects induced by the vortical
+structures following
+%
+\begin{equation}
+\boldsymbol{\mathcal{P}}^* \nabla \mathbf{u} \boldsymbol{\mathcal{P}} =  \mathcal{T} 
+            = \boldsymbol{\mathcal{D}_{\lambda}}  +  \boldsymbol{\mathcal{N}}
+\label{eq:complex_schur}
+\end{equation} 
+%
+where $(.)^*$ is the Hermitian operator, $\boldsymbol{\mathcal{P}} \in \mathbb{C}^{(3\times3)}$ is a unitary
+matrix, \ie $\boldsymbol{\mathcal{P}\mathcal{P}}^*=\mathbf{I}$ and $\boldsymbol{\mathcal{T}} \in \mathbb{C}^{(3\times3)}$ is an upper-triangular matrix.
+%
+The matrix $\boldsymbol{\mathcal{D}_{\lambda}}$ is the diagonal matrix composed of $\nabla \mathbf{u}$ eigenvalues and $\boldsymbol{\mathcal{N}}$ is a strictly upper-triangular matrix such that
+%
+\begin{equation}
+\boldsymbol{\mathcal{D}_{\lambda}} =   
+\begin{pmatrix}
+\lambda_1 & 0 & 0\\ 
+0         & \lambda_2    & 0\\
+0         & 0            & \lambda_3
+\end{pmatrix}
+%
+~~~~~~,~~~~~
+\boldsymbol{\mathcal{N}} = \begin{pmatrix}
+0 & \gamma_{12} & \gamma_{13}\\ 
+0         & 0    & \gamma_{23}\\
+0         & 0            & 0
+\end{pmatrix}
+\end{equation}
+where $\lambda_i$ refer to the eigenvalues of the velocity gradient tensor ordered in the 
+increasing order of their norms.
+
+
+The approach based on the equation \eqref{eq:complex_schur} presents the advantage of projecting the
+non-normal (non-local) effects into an upper-triangular matrix that can be treated in an analogous
+manner to the analysis based on principal eigenvectors, which eases the interpretation of the
+respective effects of normal and non--normal contributions.
+%
+as a matter of fact, the concept embodied by the equation \eqref{eq:complex_schur} has proven to be 
+an effective tool to provide concrete explanations concerning the alignments properties, such
+as the one between the vorticity vector and the intermediate strain eigenvector and demonstrates
+the key role played by non-normality \cite{keylock2018schur}.
+
+
+The present work aims at reinterpreting some of the classical results obtained in 
+the context of turbulence-flame interaction, in the light of concept presented above, and seeking
+a deeper insight and further clarity into the phenomena taking place in a such interaction.
+%
+In view of this, the transport equation of the scalar gradient \eqref{eq:cauchy_stokes}
+is re-expressed as:
+%
+\begin{equation}
+\frac{D(\nabla \mathcal{Y})}{Dt} = \nabla \left( \frac{D\mathcal{Y}}{Dt}\right) +
+        \|\nabla \mathcal{Y}\| \left(
+        \boldsymbol{\mathcal{A_L}} \cdot \mathbf{n}
+        +\boldsymbol{\mathcal{A_N}} \cdot \mathbf{n}
+        \right)
+\label{eq:trans_grad_schur}
+\end{equation}
+%
+where $\boldsymbol{\mathcal{A_L}} \equiv \boldsymbol{\mathcal{P}} \boldsymbol{\mathcal{D}_{\lambda}}
+\boldsymbol{\mathcal{P}}^*$ and $\boldsymbol{\mathcal{A_N}} \equiv \boldsymbol{\mathcal{P}} \boldsymbol{\mathcal{N}} \boldsymbol{\mathcal{P}}^*$  denote respectively the local (normal) and non-local 
+(non-normal) components of the velocity gradient.

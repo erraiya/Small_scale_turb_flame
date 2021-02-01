@@ -1,0 +1,264 @@
+\begin{thebibliography}{39}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Almgren et~al.(1998)Almgren, Bell, Colella, Howell, and
+  Welcome]{almgren1998conservative}
+A.~S. Almgren, J.~B. Bell, P.~Colella, L.~H. Howell, and M.~L. Welcome.
+\newblock A conservative adaptive projection method for the variable density
+  incompressible {Navier--Stokes} equations.
+\newblock \emph{Journal of computational Physics}, 142\penalty0 (1):\penalty0
+  1--46, 1998.
+
+\bibitem[Ashurst et~al.(1987)Ashurst, Kerstein, Kerr, and
+  Gibson]{ashurst1987alignment}
+Wm.~T. Ashurst, A.~R. Kerstein, R.~M. Kerr, and C.~H. Gibson.
+\newblock Alignment of vorticity and scalar gradient with strain rate in
+  simulated {Navier--Stokes} turbulence.
+\newblock \emph{The Physics of fluids}, 30\penalty0 (8):\penalty0 2343--2353,
+  1987.
+
+\bibitem[Aspden et~al.(2009)Aspden, Nikiforakis, Dalziel, and
+  Bell]{aspden2009analysis}
+A.~Aspden, N.~Nikiforakis, S.~Dalziel, and J.~B. Bell.
+\newblock Analysis of implicit {LES} methods.
+\newblock \emph{Communications in Applied Mathematics and Computational
+  Science}, 3\penalty0 (1):\penalty0 103--126, 2009.
+
+\bibitem[Aspden et~al.(2011)Aspden, Day, and Bell]{aspden2011turbulence}
+A.~J. Aspden, M.~S. Day, and J.~B. Bell.
+\newblock Turbulence--flame interactions in lean premixed hydrogen: transition
+  to the distributed burning regime.
+\newblock \emph{Journal of Fluid mechanics}, 680:\penalty0 287--320, 2011.
+
+\bibitem[Aspden et~al.(2015)Aspden, Day, and Bell]{aspden2015turbulence}
+A.~J. Aspden, M.~S. Day, and J.~B. Bell.
+\newblock Turbulence-chemistry interaction in lean premixed hydrogen
+  combustion.
+\newblock \emph{Proceedings of the Combustion Institute}, 35\penalty0
+  (2):\penalty0 1321--1329, 2015.
+
+\bibitem[Aspden et~al.(2016)Aspden, Day, and Bell]{aspden2016three}
+A.~J. Aspden, M.~S. Day, and J.~B. Bell.
+\newblock Three-dimensional direct numerical simulation of turbulent lean
+  premixed methane combustion with detailed kinetics.
+\newblock \emph{Combustion and Flame}, 166:\penalty0 266--283, 2016.
+
+\bibitem[Aspden et~al.(2017)Aspden, Bell, Day, and
+  Egolfopoulos]{aspden2017turbulence}
+A.~J. Aspden, J.~B. Bell, M.~S. Day, and F.~N. Egolfopoulos.
+\newblock Turbulence--flame interactions in lean premixed dodecane flames.
+\newblock \emph{Proceedings of the Combustion Institute}, 36\penalty0
+  (2):\penalty0 2005--2016, 2017.
+
+\bibitem[Aspden et~al.(2018)Aspden, Day, and Bell]{aspden2018towards}
+A.~J. Aspden, M.~S. Day, and J.~B. Bell.
+\newblock Towards the distributed burning regime in turbulent premixed flames.
+\newblock \emph{arXiv preprint arXiv:1806.09865}, 2018.
+
+\bibitem[Bell et~al.(2007)Bell, Day, Grcar, and Lijewski]{bell2007active}
+J.~B. Bell, M.~Day, J.~Grcar, and M.~Lijewski.
+\newblock Active control for statistically stationary turbulent premixed flame
+  simulations.
+\newblock \emph{Communications in Applied Mathematics and Computational
+  Science}, 1\penalty0 (1):\penalty0 29--51, 2007.
+
+\bibitem[Chakraborty(2007)]{chakraborty2007comparison}
+N.~Chakraborty.
+\newblock Comparison of displacement speed statistics of turbulent premixed
+  flames in the regimes representing combustion in corrugated flamelets and
+  thin reaction zones.
+\newblock \emph{Physics of Fluids}, 19\penalty0 (10):\penalty0 105109, 2007.
+
+\bibitem[Chakraborty and Swaminathan(2007)]{chakraborty2007influence}
+N.~Chakraborty and N.~Swaminathan.
+\newblock Influence of the damk{\"o}hler number on turbulence-scalar
+  interaction in premixed flames. i. physical insight.
+\newblock \emph{Physics of Fluids}, 19\penalty0 (4):\penalty0 045103, 2007.
+
+\bibitem[Cifuentes et~al.(2014)Cifuentes, Dopazo, Martin, and
+  Jimenez]{cifuentes2014local}
+L.~Cifuentes, C.~Dopazo, J.~Martin, and C.~Jimenez.
+\newblock Local flow topologies and scalar structures in a turbulent premixed
+  flame.
+\newblock \emph{Physics of Fluids}, 26\penalty0 (6):\penalty0 065108, 2014.
+
+\bibitem[Day and Bell(2000)]{day2000numerical}
+M.~S. Day and J.~B. Bell.
+\newblock Numerical simulation of laminar reacting flows with complex
+  chemistry.
+\newblock \emph{Combustion Theory and Modelling}, 4\penalty0 (4):\penalty0
+  535--556, 2000.
+
+\bibitem[Dutt et~al.(2000)Dutt, Greengard, and Rokhlin]{dutt2000spectral}
+A.~Dutt, L.~Greengard, and V.~Rokhlin.
+\newblock Spectral deferred correction methods for ordinary differential
+  equations.
+\newblock \emph{BIT Numerical Mathematics}, 40\penalty0 (2):\penalty0 241--266,
+  2000.
+
+\bibitem[Ern and Giovangigli(2004)]{ern2004eglib}
+A.~Ern and V.~Giovangigli.
+\newblock Eglib: A general-purpose fortran library for multicomponent transport
+  property evaluation.
+\newblock \emph{Manual of EGlib version}, 3:\penalty0 12, 2004.
+
+\bibitem[Gao and Liu(2019)]{gao2019rortex}
+Y.~Gao and C.~Liu.
+\newblock Rortex based velocity gradient tensor decomposition.
+\newblock \emph{Physics of Fluids}, 31\penalty0 (1):\penalty0 011704, 2019.
+
+\bibitem[Hamlington et~al.(2011)Hamlington, Poludnenko, and
+  Oran]{hamlington2011interactions}
+P.~E. Hamlington, A.~Y. Poludnenko, and E.~S. Oran.
+\newblock Interactions between turbulence and flames in premixed reacting
+  flows.
+\newblock \emph{Physics of Fluids}, 23\penalty0 (12):\penalty0 125111, 2011.
+
+\bibitem[Hartung et~al.(2008)Hartung, Hult, Kaminski, Rogerson, and
+  Swaminathan]{hartung2008effect}
+G.~Hartung, J.~Hult, C.~F. Kaminski, J.~W. Rogerson, and N.~Swaminathan.
+\newblock Effect of heat release on turbulence and scalar-turbulence
+  interaction in premixed combustion.
+\newblock \emph{Physics of Fluids}, 20\penalty0 (3):\penalty0 035110, 2008.
+
+\bibitem[Hassanaly et~al.(2015)Hassanaly, Raman, Koo, and
+  Colket]{hassanaly2015influence}
+M.~Hassanaly, V.~Raman, H.~Koo, and M.~B. Colket.
+\newblock Influence of fuel stratification on turbulent flame propagation.
+\newblock In \emph{53rd AIAA Aerospace Sciences Meeting}, page 0426, 2015.
+
+\bibitem[Hirschfelder et~al.(1954)Hirschfelder, Curtiss, Bird, and
+  Mayer]{hirschfelder1954molecular}
+J.~O. Hirschfelder, C.~F. Curtiss, R.~B. Bird, and M.~G. Mayer.
+\newblock \emph{Molecular theory of gases and liquids}, volume~26.
+\newblock Wiley New York, 1954.
+
+\bibitem[Kee et~al.(1990)Kee, Rupley, and Miller]{kee1990chemkin}
+R.~J. Kee, F.~M. Rupley, and J.~A. Miller.
+\newblock The chemkin thermodynamic data base.
+\newblock \emph{ctdb}, 1990.
+
+\bibitem[Keylock(2018)]{keylock2018schur}
+C.~J. Keylock.
+\newblock The schur decomposition of the velocity gradient tensor for turbulent
+  flows.
+\newblock \emph{Journal of Fluid Mechanics}, 848:\penalty0 876--905, 2018.
+
+\bibitem[Kim and Pitsch(2007)]{kim2007scalar}
+S.~H. Kim and H.~Pitsch.
+\newblock Scalar gradient and small-scale structure in turbulent premixed
+  combustion.
+\newblock \emph{Physics of Fluids}, 19\penalty0 (11):\penalty0 115104, 2007.
+
+\bibitem[Kol{\'a}{\v{r}}(2007)]{kolavr2007vortex}
+V.~Kol{\'a}{\v{r}}.
+\newblock Vortex identification: New requirements and limitations.
+\newblock \emph{International journal of heat and fluid flow}, 28\penalty0
+  (4):\penalty0 638--652, 2007.
+
+\bibitem[Mathur et~al.(1967)Mathur, Tondon, and Saxena]{mathur1967thermal}
+S.~Mathur, P.~K. Tondon, and S.~C. Saxena.
+\newblock Thermal conductivity of binary, ternary and quaternary mixtures of
+  rare gases.
+\newblock \emph{Molecular Physics}, 12\penalty0 (6):\penalty0 569--579, 1967.
+
+\bibitem[Nagata et~al.(2020)Nagata, Watanabe, Nagata, and
+  da~Silva]{nagata2020triple}
+R.~Nagata, T.~Watanabe, K.~Nagata, and C.~B. da~Silva.
+\newblock Triple decomposition of velocity gradient tensor in homogeneous
+  isotropic turbulence.
+\newblock \emph{Computers \& Fluids}, 198:\penalty0 104389, 2020.
+
+\bibitem[Nonaka et~al.(2012)Nonaka, Bell, Day, Gilet, Almgren, and
+  Minion]{nonaka2012deferred}
+A.~Nonaka, J.~B. Bell, M.~S. Day, C.~Gilet, A.~S. Almgren, and M.~L. Minion.
+\newblock A deferred correction coupling strategy for low mach number flow with
+  complex chemistry.
+\newblock \emph{Combustion Theory and Modelling}, 16\penalty0 (6):\penalty0
+  1053--1088, 2012.
+
+\bibitem[Nonaka et~al.(2018)Nonaka, Day, and Bell]{nonaka2018conservative}
+A.~Nonaka, M.~S. Day, and J.~B. Bell.
+\newblock A conservative, thermodynamically consistent numerical approach for
+  low mach number combustion. part i: {S}ingle-level integration.
+\newblock \emph{Combustion Theory and Modelling}, 22\penalty0 (1):\penalty0
+  156--184, 2018.
+
+\bibitem[Paolucci(1982)]{paolucci1982filtering}
+S.~Paolucci.
+\newblock \emph{Filtering of sound from the {Navier-Stokes} equations}.
+\newblock Sandia National Laboratories Livermore, CA, USA, 1982.
+
+\bibitem[Passot and Pouquet(1987)]{passot1987numerical}
+T.~Passot and A.~Pouquet.
+\newblock Numerical simulation of compressible homogeneous flows in the
+  turbulent regime.
+\newblock \emph{Journal of Fluid Mechanics}, 181:\penalty0 441--466, 1987.
+
+\bibitem[Pazner et~al.(2016)Pazner, Nonaka, Bell, Day, and
+  Minion]{pazner2016high}
+W.~E. Pazner, A.~Nonaka, J.~B. Bell, M.~S. Day, and M.~L. Minion.
+\newblock A high-order spectral deferred correction strategy for low mach
+  number flow with complex chemistry.
+\newblock \emph{Combustion Theory and Modelling}, 20\penalty0 (3):\penalty0
+  521--547, 2016.
+
+\bibitem[Pember et~al.(1998)Pember, Howell, Bell, Colella, Crutchfield,
+  Fiveland, and Jessee]{pember1998adaptive}
+R.~B. Pember, L.~H. Howell, J.~B. Bell, P.~Colella, W.~Y. Crutchfield, W.A.
+  Fiveland, and J.~P. Jessee.
+\newblock An adaptive projection method for unsteady, low-mach number
+  combustion.
+\newblock \emph{Combustion Science and Technology}, 140\penalty0
+  (1-6):\penalty0 123--168, 1998.
+
+\bibitem[Rutland and Trouv{\'e}(1993)]{rutland1993direct}
+C.~J. Rutland and A.~Trouv{\'e}.
+\newblock Direct simulations of premixed turbulent flames with nonunity {L}ewis
+  numbers.
+\newblock \emph{Combustion and Flame}, 94\penalty0 (1-2):\penalty0 41--57,
+  1993.
+
+\bibitem[Smooke(1991)]{smooke1991reduced}
+M.~D. Smooke.
+\newblock \emph{Reduced kinetic mechanisms and asymptotic approximations for
+  methane-air flames: a topical volume}.
+\newblock Springer, 1991.
+
+\bibitem[Swaminathan and Grout(2006)]{swaminathan2006interaction}
+N.~Swaminathan and R.~W. Grout.
+\newblock Interaction of turbulence and scalar fields in premixed flames.
+\newblock \emph{Physics of Fluids}, 18\penalty0 (4):\penalty0 045102, 2006.
+
+\bibitem[Wacks et~al.(2016)Wacks, Chakraborty, Klein, Arias, and
+  Im]{wacks2016flow}
+D.~H. Wacks, N.~Chakraborty, M.~Klein, P.~G. Arias, and H.~G. Im.
+\newblock Flow topologies in different regimes of premixed turbulent
+  combustion: {A} direct numerical simulation analysis.
+\newblock \emph{Physical Review Fluids}, 1\penalty0 (8):\penalty0 083401, 2016.
+
+\bibitem[Wilke(1950)]{wilke1950viscosity}
+C.~R. Wilke.
+\newblock A viscosity equation for gas mixtures.
+\newblock \emph{The Journal of Chemical Physics}, 18\penalty0 (4):\penalty0
+  517--519, 1950.
+
+\bibitem[Zhang et~al.(2019)Zhang, Almgren, Beckner, Bell, Blaschke, Chan, Day,
+  Friesen, Gott, Graves, et~al.]{zhang2019amrex}
+W.~Zhang, A.~Almgren, V.~Beckner, J.~Bell, J.~Blaschke, C.~Chan, M.~Day,
+  B.~Friesen, K.~Gott, D.~Graves, et~al.
+\newblock Amrex: a framework for block-structured adaptive mesh refinement.
+\newblock \emph{Journal of Open Source Software}, 4\penalty0 (37):\penalty0
+  1370--1370, 2019.
+
+\bibitem[Zhao et~al.(2018)Zhao, Er-Raiy, Bouali, and Mura]{zhao2018dynamics}
+S.~Zhao, A.~Er-Raiy, Z.~Bouali, and A.~Mura.
+\newblock Dynamics and kinematics of the reactive scalar gradient in weakly
+  turbulent premixed flames.
+\newblock \emph{Combustion and Flame}, 198:\penalty0 436--454, 2018.
+
+\end{thebibliography}

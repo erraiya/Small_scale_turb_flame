@@ -1,0 +1,364 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%                 Packages and Commands use for the document
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% utilisez la commande "\input{config.tex}" dans le preambule du document
+% str="chaine de caractere a chercher" ; grep -rni --include=\*.{tex,bib} "$str" .
+
+
+
+% Main layouts
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[utf8]{inputenc}
+% \usepackage[T1]{fontenc}       % fontes TeX pour la césure des mots et accents PDF
+% \usepackage{xspace} 
+% \usepackage{textcomp} % symboles divers (autres que mathématiques, ex: degree C) (OBSOLETE 2017 -> ça dépend quelle font est utilisée)
+\pdfmapfile{=md-chr7v.map}
+\usepackage[super]{nth}
+\newcommand{\up}[1]{\textsuperscript{#1}}
+\newcommand{\second}{2\up{nd}\xspace}
+\newcommand{\seconde}{2\up{nde}\xspace}
+
+
+% For the PDF document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
+%\usepackage%[backref=page]
+%   {hyperref}
+    \hypersetup{
+        backref=true,       % permet d'ajouter des liens dans...
+        pagebackref=true,   % ...les bibliographies
+        hyperindex=true,    % ajoute des liens dans les index.
+        colorlinks=true,    % colorise les liens
+        breaklinks=true,    % permet le retour a la ligne dans les liens trop longs
+        urlcolor= blue,     % couleur des hyperliens
+        linkcolor= blue,    % couleur des liens internes
+        citecolor=red,      % couleur des citations
+    }
+
+
+% % Comment big section
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage{verbatim}
+% \usepackage{setspace}
+
+
+% % Mathematics
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % \usepackage{amsmath,amssymb,amsfonts,amsbsy} % amsthm
+% % \usepackage[version=4]{mhchem}
+% % \usepackage{systeme,mathtools}
+% \usepackage{amsfonts} % amsthm
+\usepackage{xspace}
+% \usepackage{amsmath} % amsthm
+% % \usepackage[T1]{fontenc}
+% \usepackage{lmodern}
+% \usepackage{mathtools}% http://ctan.org/pkg/mathtools
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[version=4]{mhchem}
+\usepackage{siunitx}
+\usepackage{longtable,tabularx}
+% \setlength\LTleft{0pt} 
+\usepackage{amsfonts}
+
+% % % Units
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage{siunitx}             % unités physiques
+% %\usepackage[autolanguage,np]{numprint}
+% % séparateur milliers ; symbole des décimales '.' (UK) ou ',' (FR)
+% % exemple : \np[N/mm^2]{-123456.1234e3}
+
+
+% % Tables
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage{tabularx}
+% \usepackage{booktabs}  
+% % \toprule, \midrule, \bottomrule, \addlinespace[<largeur>], ...
+% % do not used anymore \hline or |
+% % can be used for equation in tables !!!
+% \renewcommand{\toprule}{\hline\hline\addlinespace[2pt]}
+% \renewcommand{\bottomrule}{\addlinespace[2pt]\hline\hline}
+% \usepackage{multirow}  % fusionner lignes d'un tableau
+% \usepackage{longtable} % table sur plusieurs pages
+% %\usepackage{extra_packages/tabu} % replace tabularx
+
+% \usepackage{threeparttable} % footnote table
+% \renewcommand{\tnote}[1]{\textsuperscript{\textcolor{blue}{(\TPTtagStyle{#1})}}}
+
+
+
+% % Figures
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage{epstopdf}
+% \usepackage{rotating} % sideways
+% \usepackage{graphicx}
+% \usepackage{graphbox} % ex­ten­sion of graph­icx (vertical positionning)
+% \usepackage{grffile}             % add file names contain several dots, e.g. "file.name.simulation.pdf"
+% \usepackage[percent]{overpic}    % superposer du texte sur image
+
+% %\usepackage{printlen} % print length in human
+% %   \uselengthunit{cm}
+
+% \newlength{\mywidth}
+% \newlength{\myheight}
+% \newlength{\mywidthgraph}
+% \newlength{\myheightgraph}
+% \newlength{\myheightgraphb}
+% \newlength{\mywidthsubfig}
+
+% % === Subfigure ===
+% %\usepackage{subfigmat}  % last release 1999 (OBSOLETE...)
+% %\usepackage{subfigure}  % last release 2002 (OBSOLETE...)
+% %\usepackage{subfig}     % last release 2005 (can be used...)
+% \usepackage[
+% hypcap=true, 
+% %   subrefformat=parens, 
+% labelfont=normalfont, % up/it/sl/sc/md/bf(default)/rm/sf/tt/...
+% labelformat=simple, 
+% ]{subcaption} % last release 2013 INCOMPATIBLE with subfigure or subfig
+% \renewcommand\thesubfigure{\bf\alph{subfigure})} % format in caption
+% \newcommand{\sublabelsty}[1]{\bf\small{#1)}}
+
+
+% % Listes, items, descriptions
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %% IF you use \usepackage[french/frenchb/francais]{babel}, include :
+% %% http://daniel.flipo.free.fr/frenchb/frenchb-doc.pdf
+% %\frenchbsetup{
+% %%   StandardLists=true, % 
+% %   StandardItemLabels=true,
+% %%   ReduceListSpacing=true,
+% %%   CompactItemize=true,
+% %   }
+
+% % === PERSONALISER DES LISTES ===
+% %\usepackage[olditem,oldenum,defblank,neveradjust]{paralist} % last release 2017
+% %\setlength{\plitemsep}{0.5em}
+% % http://tug.ctan.org/macros/latex/contrib/paralist/paralist.pdf
+% %             ENUMERATE     ITEMIZE       DESCRIPTION
+% %   AS PARA   asparaenum    asparaitem    asparadesc
+% %   IN PARA   inparaenum    inparaitem    inparadesc
+% %   COMPACT   compactenum   compactitem   compactdesc
+% % AVOID USING itemize and enumerate environment...
+% %
+% % === PUIS === (sinon conflit)
+% %\usepackage[shortlabels]{enumitem} % last release 2011 (PUT IT AFTER paralist)
+% % https://tex.stackexchange.com/questions/176122/problem-with-indent-in-enumeration-of-paralist
+% % http://www.edu.upmc.fr/c2i/ressources/latex/aide-memoire.pdf
+
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % RACCOURCIS MATHEMATIQUES
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% % === Operateurs AVEC arguments ===
+% \newcommand{\dd}{\mathop{}\mathopen{}\mathrm{d}}                  % differentielle d
+% \newcommand{\td}[3][]{\frac{\dd^{#1}#2}{\dd{#3}^{#1}}}            % total derivative
+
+% \newcommand{\pd}[3][]{\frac{\partial^{#1}#2}{\partial{#3}^{#1}}}  % partial derivative                            % << NOTE >> : 
+% % devrait inverser l'argument #2 et #3 pour pouvoir si besoin juste faire \partial_j{f} = \pd{x_j}{f}
+% % désignerait alors juste l'opérateur de dérivée partielle. Idem pour tous les autres...
+
+% \newcommand{\pDelta}[3][]{\dfrac{\delta^{#1}#2}{\delta{#3}^{#1}}} % partial derivative (discrete form)
+
+% \newcommand{\pD}[3][]{\dfrac{D^{#1}#2}{D{#3}^{#1}}}               % particular derivative
+% \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}                 % |.| absolute value
+% \newcommand{\norme}[1]{\| #1 \|}                                  % ||.|| small norme
+% \newcommand{\Norme}[1]{\left\| #1 \right\|}                       % ||.|| large norme
+% \newcommand{\lremp}[1]{\left. #1 \right.}                         %  . (empty)
+% \newcommand{\lrbkt}[1]{\left( #1 \right)}                         % (.)
+% \newcommand{\lrsbkt}[1]{\left[ #1 \right]}                        % [.]
+% \newcommand{\lrangle}[1]{\left\langle #1 \right\rangle}           % <.>
+% %\newcommand{\blrangle}[2]{#1\langle #2 #1\rangle}                 % <.> big,Big,...
+% \newcommand{\lrbrace}[1]{\left\lbrace #1 \right\rbrace}           % {.}
+% \newcommand{\blrbrace}[1]{\big\lbrace #1 \big\rbrace}             % {.} big
+
+% %\newcommand{\bs}[1]{\pmb{#1}}                                     % bold symbol
+% \newcommand{\bs}[1]{\boldsymbol{#1}}                              % bold symbol (doesn't work with FOURIER font and \nabla)
+% %\renewcommand{\vec}{\bs}
+
+% \renewcommand{\tilde}{\widetilde}                                 % ~
+% \renewcommand{\hat}{\widehat}                                     % ^
+% \renewcommand{\bar}{\overline} 
+\newcommand{\pars}[1]{\left(\,{#1}\,\right)}
+%                              % -
+\usepackage[super]{nth}
+
+% %\newcommand{\range}[4]{\mathopen{}\left#1 #2 \mathpunct{} , #3 \mathclose{}\right#4}
+% \newcommand{\range}[4]{\mathopen{}\left#1 #2 ,\: #3 \mathclose{}\right#4}
+% \newcommand{\rangeCC}[2]{\range{[}{#1}{#2}{]}}                    % range Close-Close
+% \newcommand{\rangeOC}[2]{\range{]}{#1}{#2}{]}}                    % range Open -Close
+% \newcommand{\rangeCO}[2]{\range{[}{#1}{#2}{[}}                    % range Close-Open
+% \newcommand{\rangeOO}[2]{\range{]}{#1}{#2}{[}}                    % range Open -Open
+% \newcommand{\rangeI} [2]{\range{\llbracket}{#1}{#2}{\rrbracket}}  % range Integer
+
+% \newcommand{\colprod}[1]{\textcolor{red}{#1}}                     % COLOR production
+% \newcommand{\coldissip}[1]{\textcolor{DeepSkyBlue3}{#1}}          % COLOR dissipation
+
+
+% % === Operateurs SANS arguments ===
+% \DeclareMathOperator\erf{\mathrm{erf}}          % error function
+% \DeclareMathOperator\Real{\mathrm{Re}}          % real part
+% \DeclareMathOperator\Imag{\mathrm{Im}}          % imaginary part
+
+% \DeclareMathOperator\diverg{\mathrm{div}}       % divergence
+% \DeclareMathOperator\rot{\vec{\mathrm{rot}}}    % rotationel
+% \DeclareMathOperator\grad{\vec{\mathrm{grad}}}  % gradient
+
+% \DeclareMathOperator{\Lsource}{\mathcal{L}}     % source/sink filtered op
+% \DeclareMathOperator{\Lsourced}{\mathit{L}}     % idem for discrete case
+
+% \newcommand\eqdef{\overset{\mathrm{def}}{=}}    % = def
+% \newcommand\gdo{\mathcal{O}}                    % grand O
+% %\newcommand{\rar}{\rightarrow}                  % ->
+% %\newcommand{\rlha}{\rightleftharpoons}          % <=>
+
+% % === LISTE DES VARIABLES, INDICES, EXPOSANTS ===
+% % Regle d'uniformisation de syntaxe : 
+% %   Nom de la variable = nom en anglais abrégé
+% % http://pleasemakeanote.blogspot.fr/2010/07/italics-in-math-equations.html
+% % http://folk.uio.no/jornb/howto/latex/jfm2enot.pdf
+% \newcommand{\inmath}[1]{\ensuremath{#1}\xspace}
+% \newcommand{\inmathrm}[1]{\ensuremath{\mathrm{#1}}\xspace}
+% \newcommand{\inmathit}[1]{\ensuremath{\mathit{#1}}\xspace}
+
+
+% \newcommand\domain{\mathcal{D}}              % Domain
+% \newcommand\cst{\inmathrm{cst}}              % Constant
+% \newcommand\fuel{\inmathrm{fuel}}            % Fuel stream
+% \newcommand\ox{\inmathrm{ox}}                % Oxydizer stream
+% \newcommand\fsp{\inmath{F}}                  % Fuel species
+% \newcommand\osp{\inmath{O}}                  % Oxydizer species
+% \newcommand\psp{\inmath{P}}                  % Product species
+% \newcommand\strainrate{\inmath{a}}           % Strain rate
+% \newcommand\SDR{\inmath{\chi_\xi}}           % Scalar Dissipation Rate (SDR)
+% \newcommand\sgsSDR{\inmath{\chi_\xi^\sgs}}   % SGS Scalar Dissipation Rate
+% \newcommand\stc{\mathrm{st}}                 % Stoechiometry
+% \newcommand\stoecr{\inmath{r_\stc}}          % Stoechiometric ratio
+% \newcommand\mostr{\mathrm{mr}}               % Most Reactive
+% \newcommand\res{\mathrm{res}}                % Resolved
+% \newcommand\sgs{\mathrm{sgs}}                % Sub-Grid Scale
+% \newcommand\rms{\mathrm{rms}}                % Root-mean-square
+% \newcommand\PSR{\inmathrm{PSR}}              % Perfectly Stirred Reactor
+% \newcommand\MIL{\inmathrm{MIL}}              % Model Intermittent Lagrangian
+% \newcommand\mix{\mathrm{mix}}                % Pure Mixing
+% \newcommand\NPR{\inmathit{NPR}}              % Nozzle Pressure Ratio
+% \newcommand\IEM{\inmathrm{IEM}}              % Interaction by Exchange with Mean
+% \newcommand\traceless{\inmath{d}}            % Deviatrice / Traceless
+% \newcommand\seuil{\inmathrm{seuil}}          % Seuil
+% \newcommand\eq{\mathrm{eq}}                  % Equilibrium
+% \newcommand\diff{\mathrm{diff}}              % Diffusion
+% \newcommand\conv{\mathrm{conv}}              % Convection
+% \newcommand\igni{\mathrm{igni}}              % Ignition
+% \newcommand\propa{\mathrm{propa}}            % Propagation
+% \newcommand\unburnt{\inmathrm{u}}            % Unburnt
+% \newcommand\burnt{\inmathrm{b}}              % Burnt
+% \newcommand\premixed{\mathit{P}}             % Premixed
+% \newcommand\npremixed{\mathit{NP}}           % Non-Premixed
+% \newcommand\rf{\mathrm{ref}}                 % Reference
+% \newcommand\wall{w}                          % Wall
+% \newcommand\jet{\mathrm{jet}}                % Jet injection
+% \newcommand\SSp{\mathit{SS}}                 % Steady state parameter
+
+% \newcommand\sgsVar{\inmath{\tilde V_\xi}}    % SGS variance
+% \newcommand\sqgradzm{\inmath{\vec\nabla\tilde\xi\cdot\vec\nabla\tilde\xi}} % Squared gradient scalar
+
+% % === Amelioration ecriture \tilde{\xi}^2
+% %\newcommand\ZtildeS{\inmath{\left.\tilde{\xi}\right.^{2}}} 
+% \newcommand\ZtildeS{\inmath{\tilde{\xi\mkern 0mu}^{2}}}
+% %\newcommand\ZtildeS{\inmath{\tilde{\xi}{\mathstrut}^{\,2}}}
+
+
+
+
+% % Adimensional numbers
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand\adimn[1]{\inmathrm{#1}}   % Font for adimensionalize number
+
+% \newcommand\Rey{\adimn{Re}}  % Reynolds number, cf TeX's \Re real part
+% \newcommand\Pran{\adimn{Pr}} % Prandtl number, cf TeX's \Pr product
+% \newcommand\Pen{\adimn{Pe}}  % Peclet number
+% \newcommand\Sc{\adimn{Sc}}   % Schmidt number
+% \newcommand\Str{\adimn{S}}   % Strouhal number
+% \newcommand\Le{\adimn{Le}}   % Lewis number
+% \newcommand\Ma{\adimn{Ma}}   % Mach number
+% \newcommand\Kn{\adimn{Kn}}   % Knudsen number
+% \newcommand\Ec{\adimn{Ec}}   % Eckert number
+% \newcommand\Fr{\adimn{Fr}}   % Froude number
+% \newcommand\Fo{\adimn{Fo}}   % Fourier number
+% \newcommand\Ri{\adimn{Ri}}   % Richardson number
+% \newcommand\Gra{\adimn{Gr}}  % Grashof number
+% \newcommand\Ray{\adimn{Ra}}  % Rayleigh number
+% \newcommand\St{\adimn{St}}   % Stanton number
+% \newcommand\Nu{\adimn{Nu}}   % Nusselt number
+% \newcommand\Da{\adimn{Da}}   % Damköhler number
+% \newcommand\Ka{\adimn{Ka}}   % Karlovitz number
+% \newcommand\CFL{\adimn{CFL}} % Courant-Friedrichs-Lewy number
+
+
+
+% % Cross references
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{cleveref}
+% % INCOMPATIBLE with the use character ':' and FRENCH in \label 
+% % each of the following has two versions
+% % \crefname{environmentname}{singular}{plural}, used at mid-sentence
+% % \Crefname{environmentname}{singular}{plural}, used at the beginning of a sentence
+% \newcommand{\bcref}[1]{[\cref{#1}]}
+
+% \crefname{section}{Sec.}{Secs.}
+% %   \Crefname{section}{Section}{Sections}
+% \crefname{chapter}{Sec.}{Secs.}
+% \crefname{appendix}{Appendix}{Appendices}
+
+% %   \crefname{equation}{}{}
+% \crefname{equation}{Eq.}{Eqs.}
+% %   \Crefname{equation}{Equation}{Equations}
+
+% \crefname{table}{Table}{Tables}
+% %   \Crefname{table}{Tableau}{Tableaux}
+
+% \crefname{figure}{Fig.}{Figs.}
+% \Crefname{figure}{Figure}{Figures}
+
+% \crefname{page}{p.}{p.}
+
+
+% % Raccourcis pour le corpus
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand\etal{\mbox{{et al.}}\xspace}
+% \newcommand\apriori{\mbox{{a priori}}\xspace}
+% \newcommand\aposteriori{\mbox{{a posteriori}}\xspace}
+% \newcommand\etc{etc.\xspace}
+% \newcommand\eg{e.g.\xspace}
+% \newcommand\ie{i.e.\xspace}
+% \newcommand\Xth{\textsuperscript{th}\xspace} % for X variable (\th is already taken)
+
+% \newcommand\code[1]{{\fontfamily{pzc}\selectfont #1}\xspace} % Font for code names
+
+
+% \newcommand\commAM[1]{{\textcolor{blue}{#1}}}   % commentaires
+% \newcommand\commAT[1]{\textit{\textcolor{blue}{(#1)}}}   % commentaires
+% \newcommand\commGL[1]{\textit{\textcolor{red}{#1}}}     % commentaires
+% \newcommand\corrAT[1]{\textcolor{red}{#1}}              % corrections
+% \newcommand\corrlatter[1]{\textcolor{red}{#1}}           % a coriger plus tard...
+
+% \setlength\LTleft{0pt} 
+
+
+
+
+% % Coloring
+% \usepackage{xcolor}
+
+% \usepackage{txfontsb}
+% \let\myBbbk\Bbbk
+% \let\Bbbk\relax
+% \usepackage[lite]{mtpro2}
